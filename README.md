@@ -1,32 +1,33 @@
 # cep_sdk
 
-[![pub package](https://img.shields.io/pub/v/cep_sdk)](https://pub.dev/packages/cep_sdk)
+[![Pub Version](https://img.shields.io/pub/v/cep_sdk)](https://pub.dev/packages/cep_sdk)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/viniciusbarross/cep_sdk/flutter.yml?branch=main)](https://github.com/viniciusbarross/cep_sdk/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 `cep_sdk` é um SDK **leve, multiplataforma e nativo** para Dart/Flutter que permite consultar CEPs e endereços do Brasil utilizando a [API ViaCEP](https://viacep.com.br/).  
-Funciona tanto em **Android, iOS, Desktop** quanto na **Web**, sem depender de pacotes HTTP externos.
+Funciona em **Android, iOS, Desktop e Web**, sem depender de pacotes HTTP externos.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- Consulta de CEP (`getAddress`)  
-- Busca de CEPs por endereço (`searchByAddress`) usando UF, cidade e logradouro  
-- Normalização e formatação automática do CEP (ex.: `01001-000`)  
-- Compatível com Flutter Web, Android, iOS e Desktop  
-- Retorno estruturado em objeto `CepResult`  
-- Simples e fácil de integrar  
+- **Consulta de CEP**: Recupere informações detalhadas de um endereço a partir de um CEP.
+- **Busca por endereço**: Encontre CEPs correspondentes a um logradouro, bairro, cidade e estado.
+- **Normalização de CEP**: Formata automaticamente o CEP para o padrão `XXXXX-XXX`.
+- **Compatibilidade multiplataforma**: Funciona em Android, iOS, Web e Desktop.
+- **Retorno estruturado**: Todos os dados retornam em objetos `CepResult`.
 
 ---
 
 ## 📦 Instalação
 
-Adicione a dependência no `pubspec.yaml`:
+No `pubspec.yaml`:
 
 ```yaml
 dependencies:
   cep_sdk:
     git:
-      url: https://github.com/seuusuario/cep_sdk.git
+      url: https://github.com/viniciusbarross/cep_sdk.git
 Depois rode:
 
 bash
@@ -50,13 +51,9 @@ void main() async {
     street: "Praça da Sé",
   );
 
-  for (var r in results) {
-    print(r);
-  }
+  results.forEach(print);
 }
 📄 Classe CepResult
-O retorno das consultas é sempre um objeto CepResult:
-
 dart
 Copiar código
 class CepResult {
@@ -71,35 +68,43 @@ class CepResult {
     return "$logradouro, $bairro - $localidade/$uf (CEP: $cep)";
   }
 }
-cep: CEP formatado (ex.: 01001-000)
+Exemplo de saída ao consultar 01001000:
 
-logradouro: Rua, avenida, praça, etc.
+json
+Copiar código
+{
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP"
+}
+🤝 Como contribuir
+Fork o repositório.
 
-bairro: Bairro do endereço
+Crie uma branch para sua feature:
 
-localidade: Cidade
+bash
+Copiar código
+git checkout -b feature/nova-feature
+Commit suas mudanças:
 
-uf: Unidade federativa (Estado)
+bash
+Copiar código
+git commit -am 'Adiciona nova feature'
+Push para a branch:
 
-⚡ Diferenciais do cep_sdk
-Multiplataforma nativo: funciona sem depender de http ou dio.
+bash
+Copiar código
+git push origin feature/nova-feature
+Abra um Pull Request.
 
-Simples de usar: poucas linhas de código para integração.
-
-Formatação automática de CEP: evita erros comuns.
-
-Consulta direta via Web ou Mobile: cada plataforma usa a API nativa (HttpClient ou HttpRequest).
-
-Pronto para Pub.dev: incluindo exemplo completo e fácil de testar.
-
-💡 Possíveis melhorias / roadmap
+💡 Roadmap / Possíveis melhorias
  Cache local de CEPs para reduzir chamadas à API
-
- Validação de endereço completo antes da consulta
 
  Consulta batch de CEPs ou endereços
 
- Widgets prontos para Flutter (ex.: formulário de endereço)
+ Widgets prontos para Flutter (formulário de endereço)
 
  Suporte a APIs de outros países
 
@@ -110,7 +115,6 @@ ViaCEP API
 
 Documentação Dart conditional imports
 
-📝 Licença
-MIT License. Sinta-se à vontade para usar, modificar e contribuir.
+📄 Licença
+MIT License. Veja o arquivo LICENSE para mais detalhes.
 
-Feito com ❤️ por Vinicius Barros 
