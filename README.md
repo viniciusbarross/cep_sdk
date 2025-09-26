@@ -28,6 +28,7 @@ dependencies:
   cep_sdk:
     git:
       url: https://github.com/viniciusbarross/cep_sdk.git
+```
 Depois rode:
 
 bash
@@ -118,3 +119,5 @@ Documentação Dart conditional imports
 📄 Licença
 MIT License. Veja o arquivo LICENSE para mais detalhes.
 
+
+Feito com ❤️ por Vinicius Barros 
