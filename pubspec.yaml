@@ -1,7 +1,8 @@
 name: cep_sdk
-description: "A new Flutter package project."
+description: SDK leve e multiplataforma para consultar CEPs no Brasil.
 version: 0.0.1
-homepage:
+homepage: https://github.com/viniciusbarross/cep_sdk
+repository: https://github.com/viniciusbarross/cep_sdk
 
 environment:
   sdk: ^3.6.0
