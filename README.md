@@ -28,7 +28,7 @@ dependencies:
   cep_sdk:
     git:
       url: https://github.com/viniciusbarross/cep_sdk.git
-```
+
 Depois rode:
 
 bash
